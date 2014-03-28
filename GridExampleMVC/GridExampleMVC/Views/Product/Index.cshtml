@@ -1,0 +1,26 @@
+﻿@using MvcContrib.UI.Grid
+@using MvcContrib.UI.Pager
+@using MvcContrib.Pagination
+@model IPagination<GridExampleMVC.Models.Product>
+  
+@{
+    ViewBag.Title = "Browse Products";
+}
+
+<h2>Browse Products</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@Html.Grid(Model).Sort(ViewData["sort"] as GridSortOptions).Columns(col =>
+{
+    col.For(p => p.Id).Named("ProductId").Sortable(true);
+    col.For(p => p.Name).Named("Name").Sortable(true);
+    col.For(p => p.Price).Named("Price").Sortable(true);
+    col.For(p => p.Qty).Named("Quantity").Sortable(false);
+}).Attributes(@class => "table")
+
+<div>
+   @Html.Raw(Html.Pager((IPagination)Model))
+</div>
+
