@@ -10,7 +10,7 @@ using MvcContrib.Sorting;
 using MvcContrib.UI.Grid;
 using MvcContrib.Pagination;
 
-namespace GridExampleMVC.Controllers
+namespace GridExampleMvc.Ajax.Controllers
 {
     public class ProductController : Controller
     {
